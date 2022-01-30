@@ -17,7 +17,7 @@ jobs:
 
     - name: Build and run Docker container
       shell: 'script -q -e -c "bash {0}"'
-      run: build -t fastq -f Dockerfile .
+      run: docker build -t fastq -f Dockerfile .
 
     - name: Run unit tests
       run: docker run -it -w /tool fastq pytest tests/unit_test/
