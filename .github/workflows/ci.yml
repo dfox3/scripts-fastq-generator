@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  build-clean-test:
 
     runs-on: ubuntu-latest
 
