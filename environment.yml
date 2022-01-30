@@ -7,3 +7,4 @@ dependencies:
   - pyfaidx
   - biopython
   - pybedtools
+  - pytest
