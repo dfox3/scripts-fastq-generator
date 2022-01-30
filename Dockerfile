@@ -38,8 +38,6 @@ ENV CONDA_DEFAULT_ENV fastq
 RUN echo "Make sure pybedtools is installed:"
 RUN python -c "import pyfaidx"
 
-ADD ./tests /tool/tests
-ADD ./test_out /tool/test_out
-ADD ./scripts-fastq-generator /tool/scripts-fastq-generator
+ADD ./ /tool
 
 RUN sudo chmod -R 777 /tool
