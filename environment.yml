@@ -1,0 +1,9 @@
+name: fastq
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - pyfaidx
+  - biopython
+  - pybedtools
