@@ -20,5 +20,5 @@ jobs:
       run: docker build -t fastq -f Dockerfile .
 
     - name: Run unit tests
-      run: docker run -i -w /tool fastq pytest tests/unit_test/
+      run: docker run -i -w /tool fastq pytest tests/unit_tests/
 
