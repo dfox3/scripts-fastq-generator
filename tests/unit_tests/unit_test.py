@@ -2,44 +2,55 @@ import unittest
 import pytest
 import scripts_fastq_generator.fastq_generator as fg
 
+
 def test_generate_random_fastq_set():
     assert True
+
 
 def test_generate_record():
     assert True
 
+
 def test_generate_title():
     assert True
+
 
 def test_generate_q_string():
     assert True
 
+
 def test__generate_read_from_sequence():
     assert True
+
 
 def test__rand_read_from_seq():
     assert True
 
+
 def test_get_sequences_from_bed():
     assert True
+
 
 def test_add_error():
     assert True
 
+
 def test__rand_error_base():
     assert True
+
 
 def test_load_sequences_from_fasta():
     assert True
 
+
 class TestReverseComplement(unittest.TestCase):
     def test_reverse_complement_clean(self):
         sequence = "AATTCCGG"
-        assert (fg.reverse_complement(sequence) == "CCGGAATT")
+        assert fg.reverse_complement(sequence) == "CCGGAATT"
 
     def test_reverse_complement_palindrome(self):
         sequence = "ATCGAT"
-        assert (fg.reverse_complement(sequence) == "ATCGAT")
+        assert fg.reverse_complement(sequence) == "ATCGAT"
 
     def test_reverse_complement_wrong_types(self):
         sequence = 234345234.09385
@@ -63,6 +74,7 @@ class TestReverseComplement(unittest.TestCase):
             fg.reverse_complement(sequence)
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == 2
+
 
 def test_write_gzip_string():
     assert True

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and run Docker container
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s) && \
+           docker run -it --rm --entrypoint /bin/bash -w /tool my-image-name:$(date +%s)
+
+    - name: Run black code cleanup
+      run: black .
+
+    - name: Run unit tests
+      run: pytest tests/unit_test/
+

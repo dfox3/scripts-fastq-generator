@@ -8,3 +8,4 @@ dependencies:
   - biopython
   - pybedtools
   - pytest
+  - black
