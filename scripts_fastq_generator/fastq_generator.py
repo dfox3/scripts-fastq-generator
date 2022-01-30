@@ -148,7 +148,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d:%H:%M:%S",
     level=logging.DEBUG,
 )
-with open(str(DIR) + "/../test_out/debug_log.txt", "w") as f:
+with open(str(DIR) + "/../logs/debug_log.txt", "w") as f:
     pass
 fh = logging.FileHandler(str(DIR) + "/../test_out/debug_log.txt")
 fh.setLevel(logging.DEBUG)
