@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-clean-test:
+  build-test:
 
     runs-on: ubuntu-latest
 
@@ -16,7 +16,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build and run Docker container
-      run: docker build -t fastq -f Dockerfile .
+      shell: 'script -q -e -c "bash {0}"'
+      run: build -t fastq -f Dockerfile .
 
     - name: Run unit tests
       run: docker run -it -w /tool fastq pytest tests/unit_test/
