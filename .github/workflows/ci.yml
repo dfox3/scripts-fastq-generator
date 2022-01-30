@@ -14,9 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - shell: 'script -q -e -c "bash {0}"'
 
     - name: Build and run Docker container
+    - shell: 'script -q -e -c "bash {0}"'
       run: bash start_dev_docker.sh
 
     - name: Run black code cleanup
