@@ -16,12 +16,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build and run Docker container
-      shell: 'script -q -e -c "bash {0}"'
-      run: bash start_ci_docker.sh
-
-    - name: Run black code cleanup
-      run: black .
+      run: docker build -t fastq -f Dockerfile .
 
     - name: Run unit tests
-      run: pytest tests/unit_test/
+      run: docker run -it -w /tool fastq pytest tests/unit_test/
 
