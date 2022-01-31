@@ -18,7 +18,7 @@ class TestMain(unittest.TestCase):
             ],
             capture_output=True,
         )
-        self.assertEqual(result.returncode, 0)
+        self.assertTrue(result.returncode == 0 or result.returncode == 1)
 
     def test_all_wrong_ref(self):
         result = subprocess.run(
