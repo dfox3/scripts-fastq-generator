@@ -46,34 +46,34 @@ def test_load_sequences_from_fasta():
 class TestReverseComplement(unittest.TestCase):
     def test_reverse_complement_clean(self):
         sequence = "AATTCCGG"
-        assert fg.reverse_complement(sequence) == "CCGGAATT"
+        self.assertEqual(fg.reverse_complement(sequence), "CCGGAATT")
 
     def test_reverse_complement_palindrome(self):
         sequence = "ATCGAT"
-        assert fg.reverse_complement(sequence) == "ATCGAT"
+        self.assertEqual(fg.reverse_complement(sequence), "ATCGAT")
 
     def test_reverse_complement_wrong_types(self):
         sequence = 234345234.09385
         with pytest.raises(TypeError) as pytest_wrapped_e:
             fg.reverse_complement(sequence)
-        assert pytest_wrapped_e.type == TypeError
+        self.assertEqual(pytest_wrapped_e.type, TypeError)
 
         sequence = None
         with pytest.raises(TypeError) as pytest_wrapped_e:
             fg.reverse_complement(sequence)
-        assert pytest_wrapped_e.type == TypeError
+        self.assertEqual(pytest_wrapped_e.type, TypeError)
 
         sequence = ["A", "C", "T", "G"]
         with pytest.raises(AttributeError) as pytest_wrapped_e:
             fg.reverse_complement(sequence)
-        assert pytest_wrapped_e.type == AttributeError
+        self.assertEqual(pytest_wrapped_e.type, AttributeError)
 
     def test_reverse_complement_nonsense_string(self):
         sequence = "ihd939q84a;sda"
         with pytest.raises(SystemExit) as pytest_wrapped_e:
             fg.reverse_complement(sequence)
-        assert pytest_wrapped_e.type == SystemExit
-        assert pytest_wrapped_e.value.code == 2
+        self.assertEqual(pytest_wrapped_e.type, SystemExit)
+        self.assertEqual(pytest_wrapped_e.value.code, 2)
 
 
 def test_write_gzip_string():
