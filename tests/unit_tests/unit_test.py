@@ -14,7 +14,7 @@ def test_generate_record():
 class TestGenerateTitle(unittest.TestCase):
     def test_title_clean(self):
         desc = "READ67"
-        self.assertEqual(fg.generate_title(desc), "READ67")
+        self.assertEqual(fg.generate_title(desc), "@READ67")
 
 
 
