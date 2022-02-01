@@ -11,8 +11,11 @@ def test_generate_record():
     assert True
 
 
-def test_generate_title():
-    assert True
+class TestGenerateTitle(unittest.TestCase):
+    def test_title_clean(self):
+        desc = "READ67"
+        self.assertEqual(fg.generate_title(desc), "READ67")
+
 
 
 def test_generate_q_string():
